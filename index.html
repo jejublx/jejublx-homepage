@@ -3,142 +3,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JejuBLX Store</title>
+  <title>JejuBLX 스토어</title>
   <style>
     body {
       margin: 0;
       background-color: #121212;
       color: #eee;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    header {
-      background-color: #1e1e1e;
-      padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      min-height: 100vh;
       align-items: center;
-      border-bottom: 1px solid #333;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #00bcd4;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #ccc;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #00bcd4;
-    }
-
-    .container {
       padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
     }
-
+    h1 {
+      font-size: 3rem;
+      color: #00bcd4;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .categories {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .category-btn {
+      background-color: #333;
+      color: #eee;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .category-btn.active, .category-btn:hover {
+      background-color: #00bcd4;
+      color: #121212;
+    }
+    .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+    }
     .item-card {
       background-color: #1e1e1e;
       padding: 1.5rem;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+      color: #ddd;
+      text-align: center;
     }
-
     .item-card h3 {
+      margin-top: 0;
       color: #00bcd4;
       margin-bottom: 0.5rem;
     }
-
-    .item-card p {
-      color: #bbb;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      margin-bottom: 1rem;
-    }
-
     .badge {
-      background-color: #00bcd4;
-      color: #121212;
-      font-weight: bold;
-      padding: 0.3rem 0.6rem;
-      border-radius: 5px;
-      font-size: 0.85rem;
       display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-
-    .download-btn {
       background: #00bcd4;
       color: #121212;
-      padding: 0.8rem 1.5rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #00bcd4;
+      color: #121212;
+      padding: 0.8rem 1.8rem;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0,188,212,0.6);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-
     .download-btn:hover {
       background: #0097a7;
       box-shadow: 0 6px 16px rgba(0,151,167,0.8);
     }
-
-    footer {
-      margin-top: 4rem;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #444;
-      border-top: 1px solid #333;
-    }
   </style>
 </head>
 <body>
+  <h1>JejuBLX 스토어</h1>
+  
+  <div class="categories" role="tablist" aria-label="카테고리 선택">
+    <button class="category-btn active" data-category="all" role="tab" aria-selected="true">전체</button>
+    <button class="category-btn" data-category="roblox" role="tab" aria-selected="false">로블록스</button>
+    <button class="category-btn" data-category="plugin" role="tab" aria-selected="false">장난 플러그인</button>
+  </div>
 
-  <header>
-    <div class="logo">JejuBLX Store</div>
-    <nav>
-      <a href="#">로블록스</a>
-      <a href="#">장난 플러그인</a>
-      <a href="#">기타</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <div class="item-card">
+  <div class="items">
+    <!-- 로블록스 카테고리 아이템 -->
+    <div class="item-card" data-category="roblox">
       <span class="badge">무료</span>
-      <h3>JejuBLX 1.1</h3>
-      <p>로블록스 유저를 위한 JejuBLX. 더 나은 UI, 가벼운 동작. 바이러스 아님!</p>
-      <a class="download-btn" href="https://www.mediafire.com/file/6yuuupyojab89ob/JejuBLX1.1.zip/file">다운로드</a>
+      <h3>JBE</h3>
+      <p>JejuBLX의 첫 작품이에요. 오로지 로블록스를 위한 작품이죠...</p>
+      <a class="download-btn" href="https://example.com/roblox-utility.zip" target="_blank" rel="noopener noreferrer">다운로드</a>
     </div>
 
-    <div class="item-card">
+    <!-- 장난 플러그인 카테고리 아이템 -->
+    <div class="item-card" data-category="plugin">
       <span class="badge">무료</span>
-      <h3>장난 플러그인</h3>
-      <p>친구들을 놀래킬 수 있는 간단한 장난용 플러그인. 무해하지만 재미있어요 😎</p>
-      <a class="download-btn" href="#">곧 출시</a>
+      <h3>???</h3>
+      <p>꼭 크롬에서 열어보세요.p>
+      <a class="download-btn" href="https://github.com/jejublx/jejublx-homepage/releases/download/Plugin/default.zip" target="_blank" rel="noopener noreferrer">다운로드</a>
     </div>
 
-    <!-- 추가 아이템은 여기 계속 추가 -->
-  </main>
+    <!-- 다른 장난 플러그인 아이템 예시 -->
+    <div class="item-card" data-category="plugin">
+      <span class="badge">무료</span>
+      <h3>장난 플러그인 2</h3>
+      <p>이곳에는 저조차 모르는 플러그인들이 있어요...</p></p>
+      <a class="download-btn" href="https://example.com/prank-plugin2.zip" target="_blank" rel="noopener noreferrer">다운로드</a>
+    </div>
+  </div>
 
-  <footer>
-    &copy; 2025 JejuBLX. All rights reserved. | 모든 제품은 무료입니다.
-  </footer>
+  <script>
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const items = document.querySelectorAll('.item-card');
 
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // 버튼 상태 업데이트
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+
+        const category = button.getAttribute('data-category');
+
+        items.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
