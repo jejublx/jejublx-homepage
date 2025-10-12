@@ -3,90 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JejuBLX</title>
+  <title>JejuBLX Store</title>
   <style>
     body {
       margin: 0;
       background-color: #121212;
       color: #eee;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00bcd4;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    .container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .item-card {
+      background-color: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+      justify-content: space-between;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+
+    .item-card h3 {
       color: #00bcd4;
-      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
     }
-    p.description {
-      font-size: 1.2rem;
-      margin-bottom: 3rem;
+
+    .item-card p {
       color: #bbb;
-      max-width: 600px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
     }
-    a.download-btn {
+
+    .badge {
+      background-color: #00bcd4;
+      color: #121212;
+      font-weight: bold;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .download-btn {
       background: #00bcd4;
       color: #121212;
-      padding: 1rem 2.5rem;
+      padding: 0.8rem 1.5rem;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,188,212,0.6);
+      font-size: 1rem;
+      text-align: center;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    a.download-btn:hover {
+
+    .download-btn:hover {
       background: #0097a7;
       box-shadow: 0 6px 16px rgba(0,151,167,0.8);
     }
-    .about-section {
-      margin-top: 5rem;
-      max-width: 700px;
-      background-color: #1e1e1e;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-      color: #ddd;
-      text-align: left;
-      line-height: 1.6;
-    }
-    .about-section h2 {
-      color: #00bcd4;
-      margin-bottom: 1rem;
-      letter-spacing: 1.5px;
-    }
+
     footer {
-      margin-top: auto;
+      margin-top: 4rem;
+      padding: 2rem;
+      text-align: center;
       font-size: 0.9rem;
       color: #444;
+      border-top: 1px solid #333;
     }
   </style>
 </head>
 <body>
-  <h1>JejuBLX</h1>
-  <p class="description">
-    JejuBLX 프로그램 홈페이지에 오신 것을 환영합니다.<br />
-    아래 버튼을 눌러 최신 버전을 다운로드하세요.
-  </p>
-  <a class="download-btn" href="https://www.mediafire.com/file/6yuuupyojab89ob/JejuBLX1.1.zip/file">
-    Download
-  </a>
 
-  <section class="about-section" aria-labelledby="about-title">
-    <h2 id="about-title">소개</h2>
-    <p>저희 파일에는 악성 코드가 없습니다. dll을 악성으로 인식하기에 그런 문제가 생깁니다.</p>
-    <p>JejuBLX 1.1 Update Note</p>
-    <p>- 디자인 개선</p>
-  </section>
+  <header>
+    <div class="logo">JejuBLX Store</div>
+    <nav>
+      <a href="#">로블록스</a>
+      <a href="#">장난 플러그인</a>
+      <a href="#">기타</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="item-card">
+      <span class="badge">무료</span>
+      <h3>JejuBLX 1.1</h3>
+      <p>로블록스 유저를 위한 JejuBLX. 더 나은 UI, 가벼운 동작. 바이러스 아님!</p>
+      <a class="download-btn" href="https://www.mediafire.com/file/6yuuupyojab89ob/JejuBLX1.1.zip/file">다운로드</a>
+    </div>
+
+    <div class="item-card">
+      <span class="badge">무료</span>
+      <h3>장난 플러그인</h3>
+      <p>친구들을 놀래킬 수 있는 간단한 장난용 플러그인. 무해하지만 재미있어요 😎</p>
+      <a class="download-btn" href="#">곧 출시</a>
+    </div>
+
+    <!-- 추가 아이템은 여기 계속 추가 -->
+  </main>
 
   <footer>
-    &copy; 2025 JejuBLX. All rights reserved.
+    &copy; 2025 JejuBLX. All rights reserved. | 모든 제품은 무료입니다.
   </footer>
+
 </body>
 </html>
